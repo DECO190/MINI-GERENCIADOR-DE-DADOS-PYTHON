@@ -1,5 +1,5 @@
 op=[1,2,3]
-from time import sleep
+
 
 def linha(a='=',b=40):
     print(a*b)
@@ -52,13 +52,13 @@ def lar(arq):
                 print('\033[1;31mOPÇÃO INVALIDA\033[m')
             else:
                 if opi == 1:
+                    linha('-')
+                    print('\033[1;32mSENHAS:\033[m')
                     try:
                         c = open(arq, 'rt')
                     except:
                         print('Erro ao ler o arquivo! ')
                     else:
-                        print('\033[33;1m> \033[m\033[1;34mSENHAS:\033[m')
-                        linha('-')
                         print(c.read())
                         c.close()
 
@@ -72,13 +72,7 @@ def lar(arq):
                     except:
                         print('Erro ao ler o arquivo! ')
                     else:
-                        c.write(f'\n\033[32;1mSERVICO: {ser}, NOME DE USUARIO: {usa}, SENHA: {pah} \033[m')
+                        c.write(f'\nSERVICO: {ser}, NOME DE USUARIO: {usa}, SENHA: {pah} ')
                         c.close()
-                        print('\033[1;33m>\033[m \033[32;1mDADOS SALVOS COM SUCESSO!\033[m')
                 if opi == 3:
-                    print(('\033[1;31mSAINDO\033[m'),end='')
-                    for t in range(0,3):
-                        print(('.'),end='')
-                        sleep(0.6)
-                    print('')
                     break
