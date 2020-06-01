@@ -12,13 +12,18 @@ while True:
     if opi not in op:
         print('\033[1;31mOPÇÃO INVALIDA!\033[m')
     if opi == 2:
-        func.cab('CADASTRO')
-        cu= str(input('\033[1;33m>\033[m \033[1;34mDIGITE O NOME DE USUARIO: \033[m'))
-        cs= str(input('\033[1;33m>\033[m \033[1;34mDIGTE UMA SENHA: \033[m'))
-        if not func.ex(cu):
-            func.cri(f'{cu}.txt')
-            func.cada(f'{cu}.txt',cs,'at')
-            print('\033[1;32mUSUARIO CRIADO COM SUCESSO!\033[m')
+        while True:
+            func.cab('CADASTRO')
+            cu= str(input('\033[1;33m>\033[m \033[1;34mDIGITE O NOME DE USUARIO: \033[m'))
+            cs= str(input('\033[1;33m>\033[m \033[1;34mDIGTE UMA SENHA: \033[m'))
+            if not func.ex(f'{cu}.txt'):
+                func.cri(f'{cu}.txt')
+                func.cada(f'{cu}.txt',cs,'at')
+                print('\033[1;32mUSUARIO CRIADO COM SUCESSO!\033[m')
+                break
+            if func.ex(f'{cu}.txt'):
+                print("\033[1;31mNOME DE USUARIO INVALIDO!")
+                print('DIGITE OUTRO:\033[m')
     if opi == 3:
         print('\033[1;31mSISTEMA FINALIZADO!\033[m')
         break
@@ -45,7 +50,3 @@ while True:
                 print('\033[1;31mAÇÕES BLOQUEADAS POR 1min!\033[m')
                 blok=0
                 sleep(60)
-
-
-
-
